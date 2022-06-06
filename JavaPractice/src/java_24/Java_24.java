@@ -1,36 +1,71 @@
 package java_24;
 
 class User {
-	private String name;
-	private int score;
+	protected String name;
+	private static double VERSION = 1.1;
 	
-	public User(String name, int score) {
+	
+//	static {
+//		User.count = 0;
+//		System.out.println("Static initializer");
+//	}
+//	
+//	{
+//		System.out.println("Instance initializer");
+//	}
+	
+	public User(String name) {
 		this.name = name;
-		this.score = score;
+//		User.count++;
+//		System.out.println("Constructor");
+		User.VERSION = 1.2;
 	}
 	
-	public String getName() {
-		return this.name;
+//	public static void getInfo() {
+//		System.out.println("# of instances: " + User.count);
+//	}
+//	
+//	public String getName() {
+//		return this.name;
+//	}
+	
+//	public int getScore() {
+//		return this.score;
+//	}
+//	
+//	public void setScore(int score) {
+//		if (score > 0) {
+//			this.score = score;
+//		}
+//	}
+	
+	public void sayHi() {
+		System.out.println("hi! " + this.name);
+	}
+}
+
+class AdminUser extends User {
+	public AdminUser(String name) {
+		super(name);
 	}
 	
-	public int getScore() {
-		return this.score;
-	}
-	
-	public void setScore(int score) {
-		if (score > 0) {
-			this.score = score;
-		}
+	@Override
+	public void sayHi() {
+		System.out.println("[admin]hi!" + this.name);
 	}
 }
 
 public class Java_24 {
 	
 	public static void main(String[] args) {
-		User tom = new User("tom", 65);
-		tom.setScore(85);
-		tom.setScore(-22);
-		System.out.println(tom.getScore() + tom.getName());
+//		User.getInfo();
+		User tom = new User("tom");
+//		User.getInfo();
+//		User bob = new User("bob");
+//		User.getInfo();
+//		tom.setScore(85);
+//		tom.setScore(-22);
+//		System.out.println(tom.getScore() + tom.getName());
 	}
 
 }
