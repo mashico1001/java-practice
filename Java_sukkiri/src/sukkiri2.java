@@ -58,7 +58,7 @@ public class sukkiri2 {
 			if (num == ans) {
 				System.out.println("あたり！");
 				break;
-			} else if (num != ans) {
+			} else {
 				System.out.println("違います");
 			}
 			
